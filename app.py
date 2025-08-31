@@ -1,5 +1,12 @@
 import streamlit as st
 from model_helper import predict
+import streamlit as st
+import torch
+
+st.title("Torch Test App")
+st.write("PyTorch version:", torch.__version__)
+st.write("CUDA available:", torch.cuda.is_available())
+
 
 st.title("Vechile Damage Detection ")
 
