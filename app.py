@@ -2,6 +2,20 @@ import streamlit as st
 from model_helper import predict
 import streamlit as st
 import torch
+import streamlit as st
+import subprocess
+
+st.title("Check Installed Packages")
+
+try:
+    import torch
+    st.write("Torch version:", torch.__version__)
+except ImportError:
+    st.error("Torch is NOT installed")
+
+# Show pip freeze to confirm
+installed = subprocess.check_output(["pip", "freeze"]).decode("utf-8")
+st.code(installed)
 
 st.title("Torch Test App")
 st.write("PyTorch version:", torch.__version__)
